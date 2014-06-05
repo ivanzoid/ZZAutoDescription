@@ -6,7 +6,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = "ZZAutoDescription"
-  s.version          = File.read('VERSION')
+  s.version          = '0.1.0'
   s.summary          = "Convenient category for NSObject for automatically pretty-printing any object."
   s.description      = <<-DESC
                        ZZAutoDescription.
