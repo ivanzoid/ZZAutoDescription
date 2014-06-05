@@ -9,10 +9,8 @@ Pod::Spec.new do |s|
   s.version          = File.read('VERSION')
   s.summary          = "Convenient category for NSObject for automatically pretty-printing any object."
   s.description      = <<-DESC
-                       An optional longer description of ZZAutoDescription
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
+                       ZZAutoDescription.
+					   Automatically pretty-print your objects, including regular objects, arrays, NSNumber's, strings, dictionaries, arrays and sets.
                        DESC
   s.homepage         = "https://github.com/ivanzoid/ZZAutoDescription"
   #s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
@@ -27,10 +25,10 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'Classes'
-  s.resources = 'Assets/*.png'
+  #s.resources = 'Assets/*.png'
 
-  s.ios.exclude_files = 'Classes/osx'
-  s.osx.exclude_files = 'Classes/ios'
+  #s.ios.exclude_files = 'Classes/osx'
+  #s.osx.exclude_files = 'Classes/ios'
   # s.public_header_files = 'Classes/**/*.h'
   # s.frameworks = 'SomeFramework', 'AnotherFramework'
   # s.dependency 'JSONKit', '~> 1.4'
