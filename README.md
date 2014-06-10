@@ -75,6 +75,8 @@ See demo for more details (you may quickly see demo by using conventient `pod tr
 
 ## Usage
 
+	#import "NSObject+AutoDescription.h"
+
 Given you have an object or a collection objects, just call:
 
 	[object autoDescription]
