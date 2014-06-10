@@ -7,7 +7,7 @@
 Pod::Spec.new do |s|
   s.name             = "ZZAutoDescription"
   s.version          = File.read('VERSION')
-  s.summary          = "Pretty-printer for your of standard Objective-C objects."
+  s.summary          = "Pretty-printer for your or standard Objective-C objects."
   s.description      = <<-DESC
   					   `ZZAutoDescription` is a convenient set of categories for pretty printing your own objects, and also standard objects and collections from Objective-C.
                        DESC
