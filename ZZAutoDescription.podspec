@@ -6,16 +6,15 @@
 #
 Pod::Spec.new do |s|
   s.name             = "ZZAutoDescription"
-  s.version          = '0.1.0'
-  s.summary          = "Convenient category for NSObject for automatically pretty-printing any object."
+  s.version          = File.read('VERSION')
+  s.summary          = "Pretty-printer for your of standard Objective-C objects."
   s.description      = <<-DESC
-                       ZZAutoDescription.
-					   Automatically pretty-print your objects, including regular objects, arrays, NSNumber's, strings, dictionaries, arrays and sets.
+  					   `ZZAutoDescription` is a convenient set of categories for pretty printing your own objects, and also standard objects and collections from Objective-C.
                        DESC
   s.homepage         = "https://github.com/ivanzoid/ZZAutoDescription"
   #s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
-  s.author           = { "Ivan Zezyulya" => "ivan@zezyulya.com" }
+  s.author           = { "Ivan Zezyulya" => "ZZAutoDescription@zoid.cc" }
   s.source           = { :git => "https://github.com/ivanzoid/ZZAutoDescription.git", :tag => s.version.to_s }
   #s.social_media_url = 'https://twitter.com/EXAMPLE'
 
