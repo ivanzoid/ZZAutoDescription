@@ -103,7 +103,7 @@
 		2C61750C194038EE006E9D80 = {
 			isa = PBXGroup;
 			children = (
-				2C61756419404A91006E9D80 /* Classes */,
+				2C61756419404A91006E9D80 /* Source */,
 				2C61751E194038EE006E9D80 /* Demo */,
 				2C61753D194038EE006E9D80 /* DemoTests */,
 				2C617517194038EE006E9D80 /* Frameworks */,
@@ -174,7 +174,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2C61756419404A91006E9D80 /* Classes */ = {
+		2C61756419404A91006E9D80 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				2C61756519404A91006E9D80 /* AutoDescriptionPrinter.h */,
@@ -192,8 +192,8 @@
 				2C61757119404A91006E9D80 /* NSString+AutoDescription.h */,
 				2C61757219404A91006E9D80 /* NSString+AutoDescription.m */,
 			);
-			name = Classes;
-			path = ../Classes;
+			name = Source;
+			path = ../Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

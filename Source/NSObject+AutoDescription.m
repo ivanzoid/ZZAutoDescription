@@ -16,16 +16,24 @@
 - (NSArray *) autoDescriptionPropertiesNames
 {
     Class class = [self class];
+    
+    BOOL respondsToShouldAutoDescribeProperty = [self respondsToSelector:@selector(shouldAutoDescribeProperty:)];
 
     NSMutableArray *names = [NSMutableArray new];
 
     if ([class superclass] != [NSObject class]) {
-        [names addObjectsFromArray:[[class superclass] autoDescriptionPropertiesNames]];
+        NSArray *superPropertiesNames = [[class superclass] autoDescriptionPropertiesNames];
+        for (NSString *propertyName in superPropertiesNames) {
+            if (!respondsToShouldAutoDescribeProperty ||
+                (respondsToShouldAutoDescribeProperty && [self shouldAutoDescribeProperty:propertyName]))
+            {
+                [names addObject:propertyName];
+            }
+        }
     }
 
     unsigned int count;
     objc_property_t *properties = class_copyPropertyList(class, &count);
-    BOOL respondsToShouldAutoDescribeProperty = [self respondsToSelector:@selector(shouldAutoDescribeProperty:)];
 
     for (unsigned int i = 0; i < count; i++) {
         objc_property_t property = properties[i];
@@ -63,8 +71,19 @@
 
     if (!autoDescriptionEnabled) {
         NSString *description = [self description];
-        [printer printText:description];
-        return;
+        if (description) {
+            NSArray *descriptionComponents = [description componentsSeparatedByString:@"\n"];
+            [printer printText:[NSString stringWithFormat:@"%@ <", NSStringFromClass([self class])]];
+            [printer printNewLine];
+            [printer increaseIndent];
+            for (NSString *component in descriptionComponents) {
+                [printer printLine:component];
+            }
+            [printer decreaseIndent];
+            [printer printIndent];
+            [printer printText:@">"];
+            return;
+        }
     }
 
     [printer registerPrintedObject:self];
