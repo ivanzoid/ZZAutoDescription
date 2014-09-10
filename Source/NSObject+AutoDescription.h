@@ -8,7 +8,7 @@
 
 - (NSString *) autoDescription;
 
-/// Implement the following method to fine-contorl which properties should be printed:
+/// Implement the following method to fine-control which properties should be printed:
 //- (BOOL) shouldAutoDescribeProperty:(NSString *)propertyName;
 
 @end
