@@ -86,7 +86,7 @@
         }
     }
 
-    [printer registerPrintedObject:self];
+    [printer pushPrintedObject:self];
     [printer printText:[NSString stringWithFormat:@"%@ <", NSStringFromClass([self class])]];
     [printer printNewLine];
     [printer increaseIndent];
@@ -115,6 +115,7 @@
     [printer decreaseIndent];
     [printer printIndent];
     [printer printText:@">"];
+    [printer popPrintedObject:self];
 }
 
 - (NSString *) autoDescription

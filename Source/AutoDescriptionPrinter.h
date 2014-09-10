@@ -28,8 +28,9 @@
 
 /// Helps to avoid recursion if printed object graph has cycles.
 /// Call after calling printLine:.
-- (void) registerPrintedObject:(id)printedObject;
-- (BOOL) isObjectAlreadyPrinted:(id)object;
+- (void) pushPrintedObject:(id)printedObject;
+- (void) popPrintedObject:(id)printedObject;
+- (BOOL) isObjectInPrintedStack:(id)object;
 
 @property (nonatomic, readonly) NSInteger currentIndentLevel;
 

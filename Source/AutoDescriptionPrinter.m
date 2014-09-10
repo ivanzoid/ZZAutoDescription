@@ -9,7 +9,7 @@
 #import "AutoDescriptionPrinter.h"
 
 @implementation AutoDescriptionPrinter {
-    NSMutableSet *printedObjects;
+    NSMutableSet *printedObjectsStack;
     NSMutableString *buffer;
 }
 
@@ -19,7 +19,7 @@
         self.indentSpaces = 2;
         
         buffer = [NSMutableString new];
-        printedObjects = [NSMutableSet new];
+        printedObjectsStack = [NSMutableSet new];
     }
     return self;
 }
@@ -58,14 +58,19 @@
     _currentIndentLevel--;
 }
 
-- (void) registerPrintedObject:(id)printedObject
+- (void) pushPrintedObject:(id)printedObject
 {
-    [printedObjects addObject:printedObject];
+    [printedObjectsStack addObject:printedObject];
 }
 
-- (BOOL) isObjectAlreadyPrinted:(id)object
+- (void) popPrintedObject:(id)printedObject
 {
-    BOOL result = [printedObjects containsObject:object];
+    [printedObjectsStack removeObject:printedObject];
+}
+
+- (BOOL) isObjectInPrintedStack:(id)object
+{
+    BOOL result = [printedObjectsStack containsObject:object];
     return result;
 }
 
