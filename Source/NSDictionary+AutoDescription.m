@@ -29,7 +29,7 @@
 
         id value = self[key];
 
-        if ([printer isObjectAlreadyPrinted:value]) {
+        if ([printer isObjectInPrintedStack:value]) {
             continue;
         }
 

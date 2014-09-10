@@ -57,7 +57,7 @@
     BOOL autoDescriptionEnabled = [self respondsToSelector:@selector(autoDescriptionEnabled)] &&
     [self performSelector:@selector(autoDescriptionEnabled)];
 
-    if ([printer isObjectAlreadyPrinted:self]) {
+    if ([printer isObjectInPrintedStack:self]) {
         NSString *description = @"";
         if (autoDescriptionEnabled) {
             description = [NSString stringWithFormat:@"<%@:#%p>", NSStringFromClass([self class]), self];
