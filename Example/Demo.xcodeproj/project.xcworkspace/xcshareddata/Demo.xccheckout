@@ -10,29 +10,29 @@
 	<string>Demo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>9C4E6EE2-D37A-4BF1-B8CD-EC2D18AAFAC4</key>
+		<key>64B16239082B46A26D4052964FBBAE3FEE067827</key>
 		<string>ssh://github.com/ivanzoid/ZZAutoDescription.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Demo/Demo.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>9C4E6EE2-D37A-4BF1-B8CD-EC2D18AAFAC4</key>
+		<key>64B16239082B46A26D4052964FBBAE3FEE067827</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/ivanzoid/ZZAutoDescription.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>9C4E6EE2-D37A-4BF1-B8CD-EC2D18AAFAC4</string>
+	<string>64B16239082B46A26D4052964FBBAE3FEE067827</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>9C4E6EE2-D37A-4BF1-B8CD-EC2D18AAFAC4</string>
+			<string>64B16239082B46A26D4052964FBBAE3FEE067827</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ZZAutoDescription</string>
 		</dict>
