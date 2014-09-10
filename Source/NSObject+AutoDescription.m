@@ -24,8 +24,8 @@
     if ([class superclass] != [NSObject class]) {
         NSArray *superPropertiesNames = [[class superclass] autoDescriptionPropertiesNames];
         for (NSString *propertyName in superPropertiesNames) {
-            if (!respondsToShouldAutoDescribeProperty ||
-                (respondsToShouldAutoDescribeProperty && [self shouldAutoDescribeProperty:propertyName]))
+            if ([self defaultShouldAutoDescribeProperty:propertyName] &&
+                (!respondsToShouldAutoDescribeProperty || [self shouldAutoDescribeProperty:propertyName]))
             {
                 [names addObject:propertyName];
             }
@@ -124,6 +124,19 @@
     [self autoDescribeWithPrinter:printer];
     NSString *result = [printer result];
     return result;
+}
+
+- (BOOL) defaultShouldAutoDescribeProperty:(NSString *)propertyName
+{
+    if ([propertyName isEqualToString:@"description"] ||
+        [propertyName isEqualToString:@"debugDescription"] ||
+        [propertyName isEqualToString:@"hash"] ||
+        [propertyName isEqualToString:@"superclass"]
+    ) {
+        return NO;
+    } else {
+        return YES;
+    }
 }
 
 @end
