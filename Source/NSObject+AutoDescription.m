@@ -8,6 +8,7 @@
 
 @interface NSObject ()
 - (BOOL) shouldAutoDescribeProperty:(NSString *)propertyName;
+- (BOOL) shouldAutoDescribePropertiesOfSuperClass:(Class)superClass;
 - (BOOL) autoDescriptionEnabled;
 @end
 
@@ -16,16 +17,22 @@
 - (NSArray *) autoDescriptionPropertiesNames
 {
     Class class = [self class];
-    
+
+    if (class == [NSObject class]) {
+        return @[];
+    }
+
     BOOL respondsToShouldAutoDescribeProperty = [self respondsToSelector:@selector(shouldAutoDescribeProperty:)];
+    BOOL respondsToShouldAutoDescribeSuperClassProperties = [self respondsToSelector:@selector(shouldAutoDescribePropertiesOfSuperClass:)];
 
     NSMutableArray *names = [NSMutableArray new];
 
-    if ([class superclass] != [NSObject class]) {
-        NSArray *superPropertiesNames = [[class superclass] autoDescriptionPropertiesNames];
+    Class superClass = [class superclass];
+
+    if (!respondsToShouldAutoDescribeSuperClassProperties || [self shouldAutoDescribePropertiesOfSuperClass:superClass]) {
+        NSArray *superPropertiesNames = [superClass autoDescriptionPropertiesNames];
         for (NSString *propertyName in superPropertiesNames) {
-            if ([self defaultShouldAutoDescribeProperty:propertyName] &&
-                (!respondsToShouldAutoDescribeProperty || [self shouldAutoDescribeProperty:propertyName]))
+            if (!respondsToShouldAutoDescribeProperty || [self shouldAutoDescribeProperty:propertyName])
             {
                 [names addObject:propertyName];
             }
@@ -40,8 +47,10 @@
 
         NSString *name = @(property_getName(property));
 
-        if (!respondsToShouldAutoDescribeProperty ||
-            (respondsToShouldAutoDescribeProperty && [self shouldAutoDescribeProperty:name]))
+        BOOL isStandardProperty = [self isStandardProperty:name];
+
+        if (!isStandardProperty &&
+            (!respondsToShouldAutoDescribeProperty || (respondsToShouldAutoDescribeProperty && [self shouldAutoDescribeProperty:name])))
         {
             [names addObject:name];
         }
@@ -126,16 +135,16 @@
     return result;
 }
 
-- (BOOL) defaultShouldAutoDescribeProperty:(NSString *)propertyName
+- (BOOL) isStandardProperty:(NSString *)propertyName
 {
     if ([propertyName isEqualToString:@"description"] ||
         [propertyName isEqualToString:@"debugDescription"] ||
         [propertyName isEqualToString:@"hash"] ||
         [propertyName isEqualToString:@"superclass"]
     ) {
-        return NO;
-    } else {
         return YES;
+    } else {
+        return NO;
     }
 }
 
