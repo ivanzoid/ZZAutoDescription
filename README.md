@@ -75,24 +75,24 @@ See demo for more details (you may quickly see demo by using conventient `pod tr
 
 ## Usage
 
-	#import "NSObject+AutoDescription.h"
+	#import "ZZAutoDescription.h.h"
 
 Given you have an object or a collection objects, just call:
 
-	[object autoDescription]
+	[object zz_autoDescription]
 
 or
 
-	[collection autoDescription]
+	[collection zz_autoDescription]
 
-Also if you wish your object to be automatically autodescribed, add an `AUTO_DESCRIPTION` macro to implementation section of your object:
+Also if you wish your object to be automatically autodescribed, add an `ZZ_AUTO_DESCRIPTION` macro to implementation section of your object:
 
 	@interface Product: NSObject
 	<list of your properties>
 	@end;
 
 	@implementation Product
-	AUTO_DESCRIPTION
+	ZZ_AUTO_DESCRIPTION
 	@end
 
 It overrides `description` method so now you can use your object as usual with NSLog for example and it will be pretty-printed.
@@ -106,7 +106,7 @@ it, simply add the following line to your Podfile:
 
 ## Author
 
-Ivan Zezyulya, zzautodescription@zoid.cc
+Ivan Zezyulya, ZZAutoDescription@zoid.cc
 
 ## License
 
