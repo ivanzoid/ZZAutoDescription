@@ -1,18 +1,25 @@
 //
-//  NSDictionary+AutoDescription.m
-//  iHerb
+//  NSDictionary+ZZAutoDescription.m
 //
 //  Created by Ivan Zezyulya on 15.04.14.
-//  Copyright (c) 2014 aldigit. All rights reserved.
+//  Copyright (c) 2014 Ivan Zezyulya. All rights reserved.
 //
 
-#import "NSDictionary+AutoDescription.h"
-#import "NSObject+AutoDescription.h"
-#import "AutoDescriptionPrinter.h"
+#import "NSDictionary+ZZAutoDescription.h"
+#import "NSObject+ZZAutoDescription.h"
+#import "ZZAutoDescriptionPrinter.h"
 
-@implementation NSDictionary (AutoDescription)
+@implementation NSDictionary (ZZAutoDescription)
 
-- (void) autoDescribeWithPrinter:(AutoDescriptionPrinter *)printer
+- (NSString *)zz_autoDescription
+{
+    ZZAutoDescriptionPrinter *printer = [ZZAutoDescriptionPrinter new];
+    [self zz_autoDescribeWithPrinter:printer];
+    NSString *result = [printer result];
+    return result;
+}
+
+- (void)zz_autoDescribeWithPrinter:(ZZAutoDescriptionPrinter *)printer
 {
     [printer printText:@"{"];
     
@@ -33,9 +40,9 @@
             continue;
         }
 
-        [key autoDescribeWithPrinter:printer];
+        [key zz_autoDescribeWithPrinter:printer];
         [printer printText:@" = "];
-        [value autoDescribeWithPrinter:printer];
+        [value zz_autoDescribeWithPrinter:printer];
         
         if ([allKeys lastObject] != key) {
             [printer printText:@","];

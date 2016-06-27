@@ -21,13 +21,13 @@
 		2C61753A194038EE006E9D80 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C61751C194038EE006E9D80 /* UIKit.framework */; };
 		2C617542194038EE006E9D80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C617540194038EE006E9D80 /* InfoPlist.strings */; };
 		2C617544194038EE006E9D80 /* DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C617543194038EE006E9D80 /* DemoTests.m */; };
-		2C61757319404A91006E9D80 /* AutoDescriptionPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C61756619404A91006E9D80 /* AutoDescriptionPrinter.m */; };
-		2C61757419404A91006E9D80 /* NSArray+AutoDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C61756819404A91006E9D80 /* NSArray+AutoDescription.m */; };
-		2C61757519404A91006E9D80 /* NSDictionary+AutoDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C61756A19404A91006E9D80 /* NSDictionary+AutoDescription.m */; };
-		2C61757619404A91006E9D80 /* NSNumber+AutoDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C61756C19404A91006E9D80 /* NSNumber+AutoDescription.m */; };
-		2C61757719404A91006E9D80 /* NSObject+AutoDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C61756E19404A91006E9D80 /* NSObject+AutoDescription.m */; };
-		2C61757819404A91006E9D80 /* NSSet+AutoDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C61757019404A91006E9D80 /* NSSet+AutoDescription.m */; };
-		2C61757919404A91006E9D80 /* NSString+AutoDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C61757219404A91006E9D80 /* NSString+AutoDescription.m */; };
+		2C61757319404A91006E9D80 /* ZZAutoDescriptionPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C61756619404A91006E9D80 /* ZZAutoDescriptionPrinter.m */; };
+		2C61757419404A91006E9D80 /* NSArray+ZZAutoDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C61756819404A91006E9D80 /* NSArray+ZZAutoDescription.m */; };
+		2C61757519404A91006E9D80 /* NSDictionary+ZZAutoDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C61756A19404A91006E9D80 /* NSDictionary+ZZAutoDescription.m */; };
+		2C61757619404A91006E9D80 /* NSNumber+ZZAutoDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C61756C19404A91006E9D80 /* NSNumber+ZZAutoDescription.m */; };
+		2C61757719404A91006E9D80 /* NSObject+ZZAutoDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C61756E19404A91006E9D80 /* NSObject+ZZAutoDescription.m */; };
+		2C61757819404A91006E9D80 /* NSSet+ZZAutoDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C61757019404A91006E9D80 /* NSSet+ZZAutoDescription.m */; };
+		2C61757919404A91006E9D80 /* NSString+ZZAutoDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C61757219404A91006E9D80 /* NSString+ZZAutoDescription.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,20 +60,21 @@
 		2C61753F194038EE006E9D80 /* DemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DemoTests-Info.plist"; sourceTree = "<group>"; };
 		2C617541194038EE006E9D80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2C617543194038EE006E9D80 /* DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoTests.m; sourceTree = "<group>"; };
-		2C61756519404A91006E9D80 /* AutoDescriptionPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoDescriptionPrinter.h; sourceTree = "<group>"; };
-		2C61756619404A91006E9D80 /* AutoDescriptionPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoDescriptionPrinter.m; sourceTree = "<group>"; };
-		2C61756719404A91006E9D80 /* NSArray+AutoDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+AutoDescription.h"; sourceTree = "<group>"; };
-		2C61756819404A91006E9D80 /* NSArray+AutoDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+AutoDescription.m"; sourceTree = "<group>"; };
-		2C61756919404A91006E9D80 /* NSDictionary+AutoDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+AutoDescription.h"; sourceTree = "<group>"; };
-		2C61756A19404A91006E9D80 /* NSDictionary+AutoDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+AutoDescription.m"; sourceTree = "<group>"; };
-		2C61756B19404A91006E9D80 /* NSNumber+AutoDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+AutoDescription.h"; sourceTree = "<group>"; };
-		2C61756C19404A91006E9D80 /* NSNumber+AutoDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+AutoDescription.m"; sourceTree = "<group>"; };
-		2C61756D19404A91006E9D80 /* NSObject+AutoDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AutoDescription.h"; sourceTree = "<group>"; };
-		2C61756E19404A91006E9D80 /* NSObject+AutoDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AutoDescription.m"; sourceTree = "<group>"; };
-		2C61756F19404A91006E9D80 /* NSSet+AutoDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+AutoDescription.h"; sourceTree = "<group>"; };
-		2C61757019404A91006E9D80 /* NSSet+AutoDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+AutoDescription.m"; sourceTree = "<group>"; };
-		2C61757119404A91006E9D80 /* NSString+AutoDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AutoDescription.h"; sourceTree = "<group>"; };
-		2C61757219404A91006E9D80 /* NSString+AutoDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AutoDescription.m"; sourceTree = "<group>"; };
+		2C61756519404A91006E9D80 /* ZZAutoDescriptionPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZAutoDescriptionPrinter.h; sourceTree = "<group>"; };
+		2C61756619404A91006E9D80 /* ZZAutoDescriptionPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZAutoDescriptionPrinter.m; sourceTree = "<group>"; };
+		2C61756719404A91006E9D80 /* NSArray+ZZAutoDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ZZAutoDescription.h"; sourceTree = "<group>"; };
+		2C61756819404A91006E9D80 /* NSArray+ZZAutoDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ZZAutoDescription.m"; sourceTree = "<group>"; };
+		2C61756919404A91006E9D80 /* NSDictionary+ZZAutoDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ZZAutoDescription.h"; sourceTree = "<group>"; };
+		2C61756A19404A91006E9D80 /* NSDictionary+ZZAutoDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ZZAutoDescription.m"; sourceTree = "<group>"; };
+		2C61756B19404A91006E9D80 /* NSNumber+ZZAutoDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+ZZAutoDescription.h"; sourceTree = "<group>"; };
+		2C61756C19404A91006E9D80 /* NSNumber+ZZAutoDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+ZZAutoDescription.m"; sourceTree = "<group>"; };
+		2C61756D19404A91006E9D80 /* NSObject+ZZAutoDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ZZAutoDescription.h"; sourceTree = "<group>"; };
+		2C61756E19404A91006E9D80 /* NSObject+ZZAutoDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ZZAutoDescription.m"; sourceTree = "<group>"; };
+		2C61756F19404A91006E9D80 /* NSSet+ZZAutoDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+ZZAutoDescription.h"; sourceTree = "<group>"; };
+		2C61757019404A91006E9D80 /* NSSet+ZZAutoDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+ZZAutoDescription.m"; sourceTree = "<group>"; };
+		2C61757119404A91006E9D80 /* NSString+ZZAutoDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZZAutoDescription.h"; sourceTree = "<group>"; };
+		2C61757219404A91006E9D80 /* NSString+ZZAutoDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZZAutoDescription.m"; sourceTree = "<group>"; };
+		31821396CC32D17BEF6CEAF8 /* ZZAutoDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZAutoDescription.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,20 +178,21 @@
 		2C61756419404A91006E9D80 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				2C61756519404A91006E9D80 /* AutoDescriptionPrinter.h */,
-				2C61756619404A91006E9D80 /* AutoDescriptionPrinter.m */,
-				2C61756719404A91006E9D80 /* NSArray+AutoDescription.h */,
-				2C61756819404A91006E9D80 /* NSArray+AutoDescription.m */,
-				2C61756919404A91006E9D80 /* NSDictionary+AutoDescription.h */,
-				2C61756A19404A91006E9D80 /* NSDictionary+AutoDescription.m */,
-				2C61756B19404A91006E9D80 /* NSNumber+AutoDescription.h */,
-				2C61756C19404A91006E9D80 /* NSNumber+AutoDescription.m */,
-				2C61756D19404A91006E9D80 /* NSObject+AutoDescription.h */,
-				2C61756E19404A91006E9D80 /* NSObject+AutoDescription.m */,
-				2C61756F19404A91006E9D80 /* NSSet+AutoDescription.h */,
-				2C61757019404A91006E9D80 /* NSSet+AutoDescription.m */,
-				2C61757119404A91006E9D80 /* NSString+AutoDescription.h */,
-				2C61757219404A91006E9D80 /* NSString+AutoDescription.m */,
+				2C61756519404A91006E9D80 /* ZZAutoDescriptionPrinter.h */,
+				2C61756619404A91006E9D80 /* ZZAutoDescriptionPrinter.m */,
+				2C61756719404A91006E9D80 /* NSArray+ZZAutoDescription.h */,
+				2C61756819404A91006E9D80 /* NSArray+ZZAutoDescription.m */,
+				2C61756919404A91006E9D80 /* NSDictionary+ZZAutoDescription.h */,
+				2C61756A19404A91006E9D80 /* NSDictionary+ZZAutoDescription.m */,
+				2C61756B19404A91006E9D80 /* NSNumber+ZZAutoDescription.h */,
+				2C61756C19404A91006E9D80 /* NSNumber+ZZAutoDescription.m */,
+				2C61756D19404A91006E9D80 /* NSObject+ZZAutoDescription.h */,
+				2C61756E19404A91006E9D80 /* NSObject+ZZAutoDescription.m */,
+				2C61756F19404A91006E9D80 /* NSSet+ZZAutoDescription.h */,
+				2C61757019404A91006E9D80 /* NSSet+ZZAutoDescription.m */,
+				2C61757119404A91006E9D80 /* NSString+ZZAutoDescription.h */,
+				2C61757219404A91006E9D80 /* NSString+ZZAutoDescription.m */,
+				31821396CC32D17BEF6CEAF8 /* ZZAutoDescription.h */,
 			);
 			name = Source;
 			path = ../Source;
@@ -293,16 +295,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C61757619404A91006E9D80 /* NSNumber+AutoDescription.m in Sources */,
-				2C61757319404A91006E9D80 /* AutoDescriptionPrinter.m in Sources */,
+				2C61757619404A91006E9D80 /* NSNumber+ZZAutoDescription.m in Sources */,
+				2C61757319404A91006E9D80 /* ZZAutoDescriptionPrinter.m in Sources */,
 				2C61752F194038EE006E9D80 /* ViewController.m in Sources */,
-				2C61757519404A91006E9D80 /* NSDictionary+AutoDescription.m in Sources */,
+				2C61757519404A91006E9D80 /* NSDictionary+ZZAutoDescription.m in Sources */,
 				2C617529194038EE006E9D80 /* AppDelegate.m in Sources */,
-				2C61757919404A91006E9D80 /* NSString+AutoDescription.m in Sources */,
-				2C61757719404A91006E9D80 /* NSObject+AutoDescription.m in Sources */,
+				2C61757919404A91006E9D80 /* NSString+ZZAutoDescription.m in Sources */,
+				2C61757719404A91006E9D80 /* NSObject+ZZAutoDescription.m in Sources */,
 				2C617525194038EE006E9D80 /* main.m in Sources */,
-				2C61757819404A91006E9D80 /* NSSet+AutoDescription.m in Sources */,
-				2C61757419404A91006E9D80 /* NSArray+AutoDescription.m in Sources */,
+				2C61757819404A91006E9D80 /* NSSet+ZZAutoDescription.m in Sources */,
+				2C61757419404A91006E9D80 /* NSArray+ZZAutoDescription.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

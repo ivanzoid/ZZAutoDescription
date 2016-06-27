@@ -1,38 +1,38 @@
 //
-//  NSObject+AutoDescription.m
+//  NSObject+ZZAutoDescription.m
 //
 
-#import "NSObject+AutoDescription.h"
-#import "AutoDescriptionPrinter.h"
+#import "NSObject+ZZAutoDescription.h"
+#import "ZZAutoDescriptionPrinter.h"
 #import <objc/runtime.h>
 
 @interface NSObject ()
-- (BOOL) shouldAutoDescribeProperty:(NSString *)propertyName;
-- (BOOL) shouldAutoDescribePropertiesOfSuperClass:(Class)superClass;
-- (BOOL) autoDescriptionEnabled;
+- (BOOL)zz_shouldAutoDescribeProperty:(NSString *)propertyName;
+- (BOOL)zz_shouldAutoDescribePropertiesOfSuperClass:(Class)superClass;
+- (BOOL)zz_autoDescriptionEnabled;
 @end
 
-@implementation NSObject (AutoDescription)
+@implementation NSObject (ZZAutoDescription)
 
-- (NSArray *) autoDescriptionPropertiesNames
++ (NSArray *) autoDescriptionPropertiesNames
 {
-    Class class = [self class];
-
-    if (class == [NSObject class]) {
+    if (self == [NSObject class]) {
         return @[];
     }
 
-    BOOL respondsToShouldAutoDescribeProperty = [self respondsToSelector:@selector(shouldAutoDescribeProperty:)];
-    BOOL respondsToShouldAutoDescribeSuperClassProperties = [self respondsToSelector:@selector(shouldAutoDescribePropertiesOfSuperClass:)];
+    BOOL respondsToShouldAutoDescribeProperty = (BOOL)[self respondsToSelector:@selector(zz_shouldAutoDescribeProperty:)];
+    BOOL respondsToShouldAutoDescribeSuperClassProperties = [self respondsToSelector:@selector(zz_shouldAutoDescribePropertiesOfSuperClass:)];
 
     NSMutableArray *names = [NSMutableArray new];
 
-    Class superClass = [class superclass];
+    Class superClass = [self superclass];
 
-    if (!respondsToShouldAutoDescribeSuperClassProperties || [self shouldAutoDescribePropertiesOfSuperClass:superClass]) {
+    BOOL shouldAutoDescribeSuperClassProperties = !respondsToShouldAutoDescribeSuperClassProperties || [self zz_shouldAutoDescribePropertiesOfSuperClass:superClass];
+
+    if (shouldAutoDescribeSuperClassProperties) {
         NSArray *superPropertiesNames = [superClass autoDescriptionPropertiesNames];
         for (NSString *propertyName in superPropertiesNames) {
-            if (!respondsToShouldAutoDescribeProperty || [self shouldAutoDescribeProperty:propertyName])
+            if (!respondsToShouldAutoDescribeProperty || [self zz_shouldAutoDescribeProperty:propertyName])
             {
                 [names addObject:propertyName];
             }
@@ -40,7 +40,7 @@
     }
 
     unsigned int count;
-    objc_property_t *properties = class_copyPropertyList(class, &count);
+    objc_property_t *properties = class_copyPropertyList(self, &count);
 
     for (unsigned int i = 0; i < count; i++) {
         objc_property_t property = properties[i];
@@ -48,9 +48,11 @@
         NSString *name = @(property_getName(property));
 
         BOOL isStandardProperty = [self isStandardProperty:name];
+        BOOL respondsToPropertySelector = [self instancesRespondToSelector:NSSelectorFromString(name)];
 
-        if (!isStandardProperty &&
-            (!respondsToShouldAutoDescribeProperty || (respondsToShouldAutoDescribeProperty && [self shouldAutoDescribeProperty:name])))
+        if (respondsToPropertySelector &&
+            !isStandardProperty &&
+            (!respondsToShouldAutoDescribeProperty || [self zz_shouldAutoDescribeProperty:name]))
         {
             [names addObject:name];
         }
@@ -61,10 +63,21 @@
     return names;
 }
 
-- (void) autoDescribeWithPrinter:(AutoDescriptionPrinter *)printer
+- (void)zz_autoDescribeWithPrinter:(ZZAutoDescriptionPrinter *)printer
 {
-    BOOL autoDescriptionEnabled = [self respondsToSelector:@selector(autoDescriptionEnabled)] &&
-    [self performSelector:@selector(autoDescriptionEnabled)];
+    [self autoDescribeWithPrinter:printer force:NO];
+}
+
+- (void)autoDescribeWithPrinter:(ZZAutoDescriptionPrinter *)printer force:(BOOL)force
+{
+    BOOL autoDescriptionEnabled = NO;
+    if (force) {
+        autoDescriptionEnabled = YES;
+    } else {
+        if ([self respondsToSelector:@selector(zz_autoDescriptionEnabled)]) {
+            autoDescriptionEnabled = (BOOL)[self performSelector:@selector(zz_autoDescriptionEnabled)];
+        }
+    }
 
     if ([printer isObjectInPrintedStack:self]) {
         NSString *description = @"";
@@ -100,17 +113,17 @@
     [printer printNewLine];
     [printer increaseIndent];
 
-    NSArray *propertiesNames = [self autoDescriptionPropertiesNames];
+    NSArray *propertiesNames = [[self class] autoDescriptionPropertiesNames];
 
     for (NSString *propertyName in propertiesNames)
     {
         [printer printIndent];
 
-        id object = [self valueForKey:propertyName];
+        NSObject *object = [self valueForKey:propertyName];
 
         if (object) {
             [printer printText:[NSString stringWithFormat:@"%@ = ", propertyName]];
-            [object autoDescribeWithPrinter:printer];
+            [object zz_autoDescribeWithPrinter:printer];
         } else {
             [printer printText:[NSString stringWithFormat:@"%@ = nil", propertyName]];
         }
@@ -127,15 +140,15 @@
     [printer popPrintedObject:self];
 }
 
-- (NSString *) autoDescription
+- (NSString *)zz_autoDescription
 {
-    AutoDescriptionPrinter *printer = [AutoDescriptionPrinter new];
-    [self autoDescribeWithPrinter:printer];
+    ZZAutoDescriptionPrinter *printer = [ZZAutoDescriptionPrinter new];
+    [self autoDescribeWithPrinter:printer force:YES];
     NSString *result = [printer result];
     return result;
 }
 
-- (BOOL) isStandardProperty:(NSString *)propertyName
+- (BOOL)isStandardProperty:(NSString *)propertyName
 {
     if ([propertyName isEqualToString:@"description"] ||
         [propertyName isEqualToString:@"debugDescription"] ||

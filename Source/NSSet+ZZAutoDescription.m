@@ -1,17 +1,24 @@
 //
-//  NSSet+AutoDescription.m
-//  iHerb
+//  NSSet+ZZAutoDescription.m
 //
 //  Created by Ivan Zezyulya on 15.04.14.
-//  Copyright (c) 2014 aldigit. All rights reserved.
+//  Copyright (c) 2014 Ivan Zezyulya. All rights reserved.
 //
 
-#import "NSSet+AutoDescription.h"
-#import "AutoDescriptionPrinter.h"
+#import "NSSet+ZZAutoDescription.h"
+#import "ZZAutoDescriptionPrinter.h"
 
-@implementation NSSet (AutoDescription)
+@implementation NSSet (ZZAutoDescription)
 
-- (void) autoDescribeWithPrinter:(AutoDescriptionPrinter *)printer
+- (NSString *)zz_autoDescription
+{
+    ZZAutoDescriptionPrinter *printer = [ZZAutoDescriptionPrinter new];
+    [self zz_autoDescribeWithPrinter:printer];
+    NSString *result = [printer result];
+    return result;
+}
+
+- (void)zz_autoDescribeWithPrinter:(ZZAutoDescriptionPrinter *)printer
 {
     [printer printText:@"<["];
     
@@ -25,7 +32,7 @@
 	for (id object in allObjects)
     {
         [printer printIndent];
-        [object autoDescribeWithPrinter:printer];
+        [object zz_autoDescribeWithPrinter:printer];
 
         if ([allObjects lastObject] != object) {
             [printer printText:@","];

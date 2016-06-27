@@ -1,17 +1,24 @@
 //
-//  NSNumber+AutoDescription.m
-//  iHerb
+//  NSNumber+ZZAutoDescription.m
 //
 //  Created by Ivan Zezyulya on 15.04.14.
-//  Copyright (c) 2014 aldigit. All rights reserved.
+//  Copyright (c) 2014 Ivan Zezyulya. All rights reserved.
 //
 
-#import "NSNumber+AutoDescription.h"
-#import "AutoDescriptionPrinter.h"
+#import "NSNumber+ZZAutoDescription.h"
+#import "ZZAutoDescriptionPrinter.h"
 
-@implementation NSNumber (AutoDescription)
+@implementation NSNumber (ZZAutoDescription)
 
-- (void) autoDescribeWithPrinter:(AutoDescriptionPrinter *)printer
+- (NSString *)zz_autoDescription
+{
+    ZZAutoDescriptionPrinter *printer = [ZZAutoDescriptionPrinter new];
+    [self zz_autoDescribeWithPrinter:printer];
+    NSString *result = [printer result];
+    return result;
+}
+
+- (void)zz_autoDescribeWithPrinter:(ZZAutoDescriptionPrinter *)printer
 {
     const char *objcType = [self objCType];
     if (strlen(objcType) == 0) {

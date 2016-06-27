@@ -1,14 +1,13 @@
 //
-//  AutoDescriptionPrinter.m
-//  iHerb
+//  ZZAutoDescriptionPrinter.m
 //
 //  Created by Ivan Zezyulya on 15.04.14.
-//  Copyright (c) 2014 aldigit. All rights reserved.
+//  Copyright (c) 2014 Ivan Zezyulya. All rights reserved.
 //
 
-#import "AutoDescriptionPrinter.h"
+#import "ZZAutoDescriptionPrinter.h"
 
-@implementation AutoDescriptionPrinter {
+@implementation ZZAutoDescriptionPrinter {
     NSMutableSet *printedObjectsStack;
     NSMutableString *buffer;
 }

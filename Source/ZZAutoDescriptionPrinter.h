@@ -1,14 +1,13 @@
 //
-//  AutoDescriptionPrinter.h
-//  iHerb
+//  ZZAutoDescriptionPrinter.h
 //
 //  Created by Ivan Zezyulya on 15.04.14.
-//  Copyright (c) 2014 aldigit. All rights reserved.
+//  Copyright (c) 2014 Ivan Zezyulya. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface AutoDescriptionPrinter : NSObject
+@interface ZZAutoDescriptionPrinter : NSObject
 
 - (void) increaseIndent;
 

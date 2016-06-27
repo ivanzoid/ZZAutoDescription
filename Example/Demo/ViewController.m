@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "NSObject+AutoDescription.h"
+#import "ZZAutoDescription.h"
 
 @interface Product: NSObject
 @property (nonatomic) NSString *title;
@@ -18,7 +18,7 @@
 @end;
 
 @implementation Product
-AUTO_DESCRIPTION
+ZZ_AUTO_DESCRIPTION
 @end
 
 @implementation ViewController
@@ -38,7 +38,7 @@ AUTO_DESCRIPTION
                           @"id2": @[@4, @5, @6]},
                         @"Good bye!" ];
 
-    NSLog(@"Array with Auto-Description: %@", [array autoDescription]);
+    NSLog(@"Array with Auto-Description: %@", [array zz_autoDescription]);
     NSLog(@"Array with default description: %@", array);
 
     Product *product1 = [Product new];
@@ -64,7 +64,9 @@ AUTO_DESCRIPTION
 
     NSArray *prices = @[product1, product2, product3];
     
-    NSLog(@"Objects: %@", [prices autoDescription]);
+    NSLog(@"Objects: %@", [prices zz_autoDescription]);
+
+    NSLog(@"self: %@", self);
 }
 
 @end
