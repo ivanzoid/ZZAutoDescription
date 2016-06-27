@@ -1,13 +1,9 @@
-////////////////////////////////////////////////////////////////////////////////
 //
-//  IVAN ZEZYULYA
-//  Copyright 2016 Ivan Zezyulya Pty Ltd
-//  All Rights Reserved.
+//  NSString+ZZAutoDescription.h
 //
-//  NOTICE: Prepared by AppsQuick.ly on behalf of Ivan Zezyulya. This software
-//  is proprietary information. Unauthorized use is prohibited.
+//  Created by Ivan Zezyulya on 15.04.14.
+//  Copyright (c) 2014 Ivan Zezyulya. All rights reserved.
 //
-////////////////////////////////////////////////////////////////////////////////
 
 #import "NSObject+ZZAutoDescription.h"
 
